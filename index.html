@@ -3,344 +3,754 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar Chaudhary | Mechanical Designer Portfolio</title>
-
+  <title>Sagar Chaudhary — Mechanical Designer | CAD Design & Drafting</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0d1f3c;
+      --navy-mid:  #16325c;
+      --acc:       #e8a020;      /* warm amber-gold accent */
+      --acc-light: #fdf3dc;      /* very light amber tint */
+      --acc-hover: #c98010;
+      --rule:      #dde3ec;
+      --bg:        #f5f7fa;
+      --white:     #ffffff;
+      --text:      #1a2535;
+      --muted:     #5a6a80;
+      --tag-bg:    #fff4de;
+      --tag-text:  #7a4800;
+      --tag-border:#e8c070;
+      --font-mono: 'Courier New', Courier, monospace;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f7fb;
-      color: #1b2733;
-      line-height: 1.5;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(135deg, #061c36, #0b3a68);
-      color: #ffffff;
-      padding: 70px 24px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 44px;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    header h2 {
-      font-size: 24px;
-      font-weight: 400;
-      margin-bottom: 14px;
-    }
-
-    header p {
-      max-width: 900px;
-      margin: auto;
-      color: #d8e6f5;
-      font-size: 17px;
-    }
-
+    /* ── NAV ── */
     nav {
-      background: #ffffff;
-      border-bottom: 1px solid #d5dde8;
-      text-align: center;
-      padding: 14px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--navy);
+      border-bottom: 2px solid var(--acc);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 54px;
     }
 
-    nav a {
-      color: #0b2545;
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--acc);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b0c4de;
       text-decoration: none;
-      font-weight: 700;
-      margin: 0 14px;
-      font-size: 14px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    section {
-      width: 96%;
-      max-width: 1600px;
-      margin: 42px auto;
+    .nav-links a:hover { color: var(--acc); }
+
+    /* ── HERO ── */
+    .hero {
+      margin-top: 54px;
+      background-image: url('images/hero-bg.png');
+      background-size: cover;
+      background-position: center top;
+      background-color: #f0ebe2;
+      padding: 6.5rem 2.5rem 5.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+      min-height: 420px;
+    }
+
+    /* Dark gradient overlay — left side dense, fades to transparent right so the illustration shows */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(8,16,30,0.82) 0%,
+        rgba(8,16,30,0.72) 38%,
+        rgba(8,16,30,0.30) 62%,
+        rgba(8,16,30,0.04) 100%
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* All hero children sit above overlay */
+    .hero > * { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      font-weight: 400;
+      color: #dde8f5;
+      letter-spacing: 0.03em;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+    }
+
+    .hero-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      max-width: 620px;
+    }
+
+    .hero-skills span {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.9rem;
+      border: 1px solid rgba(232,160,32,0.55);
+      color: #f5d080;
+      background: rgba(10,18,34,0.55);
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-location {
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 4.5rem 2.5rem; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 0.5rem;
     }
 
     .section-title {
-      border-left: 6px solid #0b5cad;
-      padding-left: 14px;
-      margin-bottom: 24px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 2.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--rule);
     }
 
-    .section-title h2 {
-      font-size: 30px;
-      color: #0b2545;
-    }
-
-    .section-title p {
-      color: #5e6c7b;
-      margin-top: 4px;
-    }
+    /* ── PORTFOLIO GRID ── */
+    #portfolio { background: var(--white); }
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr));
+      gap: 2rem;
     }
 
     .card {
-      background: #ffffff;
-      border: 1px solid #d6deea;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
 
-    .card img {
+    .card:hover {
+      box-shadow: 0 6px 28px rgba(13,31,60,0.13);
+      transform: translateY(-2px);
+    }
+
+    .card-img-wrap {
       width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #e8eff8;
+      position: relative;
+      cursor: zoom-in;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
       display: block;
-      background: #eef2f7;
+      background: #edf2f9;
+      transition: opacity 0.2s;
     }
 
-    .card-content {
-      padding: 20px;
+    .card-img-wrap:hover img { opacity: 0.88; }
+
+    /* zoom icon overlay */
+    .card-img-wrap::before {
+      content: '⤢';
+      position: absolute;
+      bottom: 8px; right: 10px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      background: rgba(13,31,60,0.55);
+      padding: 2px 6px;
+      border-radius: 2px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
-    .card-content h3 {
-      color: #0b2545;
-      font-size: 22px;
-      margin-bottom: 8px;
+    .card-img-wrap:hover::before { opacity: 1; }
+
+    /* placeholder label when image missing */
+    .card-img-wrap::after {
+      content: attr(data-label);
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: #8ea8c4;
+      pointer-events: none;
     }
 
-    .card-content p {
-      color: #4b5b6a;
-      font-size: 15px;
+    /* hide ::after once real image loads */
+    .card-img-wrap.has-img::after { display: none; }
+
+    .card-body {
+      padding: 1.2rem 1.4rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .tags {
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .card-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
     }
 
     .tag {
-      background: #e8f1fb;
-      color: #0b3a68;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      padding: 0.28rem 0.7rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--tag-border);
     }
 
-    .about-box {
-      background: #ffffff;
-      border: 1px solid #d6deea;
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(5,12,24,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      cursor: zoom-out;
     }
 
-    .about-box p {
-      margin-bottom: 14px;
-      color: #3f4f5f;
-      font-size: 16px;
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 12px 60px rgba(0,0,0,0.6);
+      cursor: default;
     }
 
-    footer {
-      background: #061c36;
-      color: #d8e6f5;
+    .lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      font-size: 1.8rem;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      transition: color 0.15s;
+    }
+
+    .lightbox-close:hover { color: var(--acc); }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .skills-block { margin-top: 0.5rem; }
+
+    .skills-group { margin-bottom: 1.4rem; }
+
+    .skills-group-label {
+      font-size: 0.68rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--acc-hover);
+      margin-bottom: 0.55rem;
+    }
+
+    .skills-group-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
       text-align: center;
-      padding: 28px 16px;
-      margin-top: 50px;
-      font-size: 14px;
+      padding: 4rem 2.5rem;
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 32px;
-      }
+    #contact .section-label { color: var(--acc); }
 
-      header h2 {
-        font-size: 18px;
-      }
+    #contact .section-title {
+      color: var(--white);
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
 
-      .portfolio-grid {
-        grid-template-columns: 1fr;
-      }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
 
-      nav a {
-        display: inline-block;
-        margin: 6px 8px;
-      }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.8rem;
+      font-size: 0.82rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--acc);
+      color: var(--acc);
+      background: transparent;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .contact-btn:hover {
+      background: var(--acc);
+      color: var(--navy);
+    }
+
+    .contact-note {
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      color: #3d5a7a;
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080f1e;
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer span {
+      font-size: 0.7rem;
+      color: #3a5270;
+      font-family: var(--font-mono);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.4rem 3.5rem; }
+      section { padding: 3rem 1.4rem; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card, .card-img-wrap img { transition: none; }
     }
   </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>Sagar Chaudhary</h1>
-    <h2>Mechanical Designer | CAD Design & Drafting</h2>
-    <p>
-      Portfolio showcasing AutoCAD drafting, Autodesk Inventor modeling, 3D assemblies,
-      CFD analysis, mechanical systems, field deployment, and technical documentation.
-    </p>
-  </header>
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+    <span class="lightbox-caption" id="lightbox-caption"></span>
+  </div>
 
+  <!-- NAV -->
   <nav>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <span class="nav-logo">SC / Mechanical Designer</span>
+    <ul class="nav-links">
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <section id="portfolio">
-    <div class="section-title">
-      <h2>Mechanical CAD Portfolio</h2>
-      <p>Selected sanitized samples. Images can be added, removed, or reordered anytime.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Calgary, Alberta &nbsp;·&nbsp; Available for Opportunities</p>
+    <h1 class="hero-name">Sagar Chaudhary</h1>
+    <p class="hero-title">Mechanical Designer &nbsp;|&nbsp; CAD Design &amp; Drafting</p>
+    <div class="hero-skills">
+      <span>AutoCAD</span>
+      <span>Autodesk Inventor</span>
+      <span>SolidWorks</span>
+      <span>3D Modeling</span>
+      <span>Assemblies</span>
+      <span>CFD Exposure</span>
+      <span>2D Drafting</span>
+      <span>Technical Documentation</span>
+      <span>Fabrication Drawings</span>
+      <span>BOM / Material Lists</span>
     </div>
+    <p class="hero-location">// Calgary, AB &nbsp;·&nbsp; Open to local &amp; remote roles</p>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Portfolio</h2>
 
     <div class="portfolio-grid">
 
+      <!-- Card 1 -->
       <div class="card">
-        <img src="images/assembly-design.png" alt="Assembly Design and Documentation">
-        <div class="card-content">
-          <h3>Assembly Design & Documentation</h3>
-          <p>Assembly modeling, BOM structure, component integration, and technical documentation.</p>
-          <div class="tags">
-            <span class="tag">Inventor</span>
+        <div class="card-img-wrap" data-label="assembly-design.png" data-title="Assembly Design &amp; Documentation">
+          <img src="images/assembly-design.png" alt="Assembly Design & Documentation" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Assembly Design &amp; Documentation</h3>
+          <p class="card-desc">Multi-component mechanical assembly with full BOM, part callouts, and fabrication-ready annotation.</p>
+          <div class="card-tags">
+            <span class="tag">Autodesk Inventor</span>
             <span class="tag">Assembly</span>
             <span class="tag">BOM</span>
-            <span class="tag">Documentation</span>
+            <span class="tag">Technical Docs</span>
           </div>
         </div>
       </div>
 
+      <!-- Card 2 -->
       <div class="card">
-        <img src="images/3d-part-creation.png" alt="3D Part Creation">
-        <div class="card-content">
-          <h3>3D Part Creation</h3>
-          <p>3D modeling, feature development, detail views, and manufacturing drawing awareness.</p>
-          <div class="tags">
-            <span class="tag">Inventor</span>
+        <div class="card-img-wrap" data-label="3d-part-creation.png" data-title="3D Part Creation">
+          <img src="images/3d-part-creation.png" alt="3D Part Creation" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">3D Part Creation</h3>
+          <p class="card-desc">Parametric solid modelling of machined and fabricated parts, designed for downstream drawing extraction.</p>
+          <div class="card-tags">
+            <span class="tag">Autodesk Inventor</span>
+            <span class="tag">SolidWorks</span>
             <span class="tag">3D Modeling</span>
-            <span class="tag">Part Design</span>
-            <span class="tag">Detailing</span>
+            <span class="tag">Parametric Design</span>
           </div>
         </div>
       </div>
 
+      <!-- Card 3 -->
       <div class="card">
-        <img src="images/2d-drawing-documentation.png" alt="2D Drawing Documentation">
-        <div class="card-content">
-          <h3>2D Drawing Documentation</h3>
-          <p>Orthographic views, dimensioning, drawing layout, and AutoCAD documentation.</p>
-          <div class="tags">
+        <div class="card-img-wrap" data-label="2d-drawing-documentation.png" data-title="2D Drawing Documentation">
+          <img src="images/2d-drawing-documentation.png" alt="2D Drawing Documentation" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">2D Drawing Documentation</h3>
+          <p class="card-desc">Production-ready orthographic drawings with GD&amp;T, tolerances, title blocks, and revision control.</p>
+          <div class="card-tags">
             <span class="tag">AutoCAD</span>
             <span class="tag">2D Drafting</span>
-            <span class="tag">Dimensioning</span>
-            <span class="tag">Layout</span>
+            <span class="tag">GD&amp;T</span>
+            <span class="tag">Fabrication Drawings</span>
           </div>
         </div>
       </div>
 
+      <!-- Card 4 -->
       <div class="card">
-        <img src="images/cfd-modeling-integration.png" alt="CFD and 3D Modeling Integration">
-        <div class="card-content">
-          <h3>CFD & 3D Modeling Integration</h3>
-          <p>Flow analysis, structural evaluation, design optimization, and manufacturing output.</p>
-          <div class="tags">
-            <span class="tag">CFD</span>
-            <span class="tag">Inventor</span>
-            <span class="tag">Design Optimization</span>
-            <span class="tag">Analysis</span>
+        <div class="card-img-wrap" data-label="cfd-modeling-integration.png" data-title="CFD &amp; 3D Modeling Integration">
+          <img src="images/cfd-modeling-integration.png" alt="CFD & 3D Modeling Integration" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">CFD &amp; 3D Modeling Integration</h3>
+          <p class="card-desc">Geometry preparation and basic simulation setup for fluid flow analysis integrated with CAD models.</p>
+          <div class="card-tags">
+            <span class="tag">CFD Exposure</span>
+            <span class="tag">Fluid Systems</span>
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Autodesk Inventor</span>
           </div>
         </div>
       </div>
 
+      <!-- Card 5 -->
       <div class="card">
-        <img src="images/turbine-assembly.png" alt="Hydrokinetic Turbine Assembly">
-        <div class="card-content">
-          <h3>Hydrokinetic Turbine Assembly</h3>
-          <p>Mechanical system modeling, component integration, and product development support.</p>
-          <div class="tags">
-            <span class="tag">Inventor</span>
+        <div class="card-img-wrap" data-label="turbine-assembly.png" data-title="Hydrokinetic Turbine Assembly">
+          <img src="images/turbine-assembly.png" alt="Hydrokinetic Turbine Assembly" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Hydrokinetic Turbine Assembly</h3>
+          <p class="card-desc">Full assembly design for a hydrokinetic turbine system — rotor, shaft, and structural frame with fit-up documentation.</p>
+          <div class="card-tags">
+            <span class="tag">Assembly Design</span>
             <span class="tag">Mechanical Systems</span>
-            <span class="tag">Product Development</span>
-            <span class="tag">Assembly</span>
+            <span class="tag">Autodesk Inventor</span>
+            <span class="tag">Fabrication Support</span>
           </div>
         </div>
       </div>
 
+      <!-- Card 6 -->
       <div class="card">
-        <img src="images/culvert-deployment.png" alt="Culvert Deployment and Field Validation">
-        <div class="card-content">
-          <h3>Culvert Deployment & Field Validation</h3>
-          <p>Design-to-deployment experience, constructability, field support, and validation.</p>
-          <div class="tags">
-            <span class="tag">Field Deployment</span>
-            <span class="tag">Constructability</span>
-            <span class="tag">Documentation</span>
-            <span class="tag">Civil Infrastructure</span>
-          </div>
+        <div class="card-img-wrap" data-label="culvert-deployment.png" data-title="Culvert Deployment &amp; Field Validation">
+          <img src="images/culvert-deployment.png" alt="Culvert Deployment & Field Validation" loading="lazy" />
         </div>
-      </div>
-
-      <div class="card">
-        <img src="images/residential-duct-layout.png" alt="Residential Duct Layout">
-        <div class="card-content">
-          <h3>Residential Duct Layout</h3>
-          <p>2D HVAC layout, air distribution, duct routing, and residential mechanical drafting.</p>
-          <div class="tags">
+        <div class="card-body">
+          <h3 class="card-title">Culvert Deployment &amp; Field Validation</h3>
+          <p class="card-desc">Design-to-deployment documentation for culvert installation — constructability drawings, field mark-ups, and as-built records.</p>
+          <div class="card-tags">
             <span class="tag">AutoCAD</span>
-            <span class="tag">HVAC Layout</span>
-            <span class="tag">Duct Design</span>
-            <span class="tag">2D Drawing</span>
+            <span class="tag">Field Constructability</span>
+            <span class="tag">Civil/Mech Interface</span>
+            <span class="tag">As-Built Docs</span>
           </div>
         </div>
       </div>
 
-    </div>
+      <!-- Card 7 -->
+      <div class="card">
+        <div class="card-img-wrap" data-label="residential-duct-layout.png" data-title="Residential Duct Layout">
+          <img src="images/residential-duct-layout.png" alt="Residential Duct Layout" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Residential Duct Layout</h3>
+          <p class="card-desc">HVAC duct routing and sizing plan for a residential build — coordinated with mechanical and architectural drawings.</p>
+          <div class="card-tags">
+            <span class="tag">AutoCAD</span>
+            <span class="tag">HVAC / Ducting</span>
+            <span class="tag">Mechanical Systems</span>
+            <span class="tag">2D Drafting</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /portfolio-grid -->
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
-    <div class="section-title">
-      <h2>About</h2>
-      <p>Mechanical design background focused on practical CAD, documentation, and implementation.</p>
-    </div>
-
-    <div class="about-box">
-      <p>
-        Mechanical Designer with experience supporting product development, 3D modeling,
-        2D drafting, assemblies, fabrication drawings, CFD analysis exposure, technical
-        documentation, vendor coordination, and field implementation.
-      </p>
-      <p>
-        Software exposure includes AutoCAD, Autodesk Inventor, Autodesk Simulation CFD,
-        Microsoft Excel, and basic/short-term SolidWorks exposure.
-      </p>
+    <p class="section-label">Background</p>
+    <h2 class="section-title">About</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Mechanical Designer based in Calgary, AB. I work across CAD modelling, 2D drafting, assembly design, and technical documentation — from early design through to fabrication handoff and field implementation.
+        </p>
+        <p>
+          Experienced with Autodesk Inventor and AutoCAD for 3D part creation, assemblies, and production-ready drawing packages. Exposure to SolidWorks and basic CFD workflows. Comfortable coordinating with fabricators and vendors, producing BOM and material lists, and supporting field constructability reviews.
+        </p>
+        <p>
+          All portfolio work shown has been sanitized and watermarked prior to public display.
+        </p>
+      </div>
+      <div class="skills-block">
+        <div class="skills-group">
+          <p class="skills-group-label">CAD Software</p>
+          <div class="skills-group-tags">
+            <span class="tag">AutoCAD</span>
+            <span class="tag">Autodesk Inventor</span>
+            <span class="tag">SolidWorks (basic)</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <p class="skills-group-label">Design Capabilities</p>
+          <div class="skills-group-tags">
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Assembly Design</span>
+            <span class="tag">2D Drafting</span>
+            <span class="tag">GD&amp;T</span>
+            <span class="tag">CFD Exposure</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <p class="skills-group-label">Documentation</p>
+          <div class="skills-group-tags">
+            <span class="tag">Fabrication Drawings</span>
+            <span class="tag">BOM / Material Lists</span>
+            <span class="tag">Technical Specs</span>
+            <span class="tag">As-Built Records</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <p class="skills-group-label">Workflow</p>
+          <div class="skills-group-tags">
+            <span class="tag">Vendor Coordination</span>
+            <span class="tag">Field Constructability</span>
+            <span class="tag">Design-to-Deployment</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>Available for Mechanical Designer, CAD Designer, and Mechanical Design Technologist roles.</p>
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Contact</h2>
+    <p style="color:#b0c4de; font-size:0.88rem; max-width:480px; margin:0 auto 0.5rem;">
+      Open to Mechanical Designer, CAD Designer, and Design Technologist roles in Calgary and surrounding areas.
+    </p>
+    <div class="contact-links">
+      <a class="contact-btn" href="mailto:your.email@example.com">&#9993; Email</a>
+      <a class="contact-btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">in LinkedIn</a>
     </div>
-
-    <div class="about-box">
-      <p><strong>Location:</strong> Calgary, Alberta, Canada</p>
-      <p><strong>LinkedIn:</strong> Add your LinkedIn profile link here</p>
-      <p><strong>Email:</strong> Add professional email here</p>
-    </div>
+    <p class="contact-note">// Calgary, Alberta &nbsp;·&nbsp; Canada &nbsp;·&nbsp; Open to hybrid &amp; on-site</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    © 2026 Sagar Chaudhary. Mechanical CAD Design Portfolio.
+    <span>Sagar Chaudhary &nbsp;·&nbsp; Mechanical Designer</span>
+    <span>Calgary, AB &nbsp;·&nbsp; &copy; 2025</span>
   </footer>
 
+  <!-- LIGHTBOX SCRIPT -->
+  <script>
+    const lb      = document.getElementById('lightbox');
+    const lbImg   = document.getElementById('lightbox-img');
+    const lbCap   = document.getElementById('lightbox-caption');
+    const lbClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.card-img-wrap').forEach(wrap => {
+      wrap.addEventListener('click', () => {
+        const img = wrap.querySelector('img');
+        if (!img) return;
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbCap.textContent = wrap.dataset.title || img.alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLb() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+    // Mark wraps that have loaded images (hides placeholder ::after)
+    document.querySelectorAll('.card-img-wrap img').forEach(img => {
+      if (img.complete && img.naturalWidth > 0) {
+        img.parentElement.classList.add('has-img');
+      } else {
+        img.addEventListener('load', () => img.parentElement.classList.add('has-img'));
+      }
+    });
+  </script>
 </body>
 </html>
