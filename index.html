@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sagar Chaudhary | Mechanical CAD Portfolio</title>
+  <title>Sagar Chaudhary | Mechanical Designer Portfolio</title>
 
   <style>
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
@@ -20,34 +20,34 @@
     }
 
     header {
-      background: linear-gradient(135deg, #0b2545, #133b63);
-      color: white;
+      background: linear-gradient(135deg, #061c36, #0b3a68);
+      color: #ffffff;
       padding: 70px 24px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 42px;
+      font-size: 44px;
       letter-spacing: 1px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     header h2 {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 400;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     header p {
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
-      font-size: 16px;
-      color: #dbe7f3;
+      color: #d8e6f5;
+      font-size: 17px;
     }
 
     nav {
       background: #ffffff;
-      border-bottom: 1px solid #d7dee8;
+      border-bottom: 1px solid #d5dde8;
       text-align: center;
       padding: 14px;
       position: sticky;
@@ -58,45 +58,45 @@
     nav a {
       color: #0b2545;
       text-decoration: none;
+      font-weight: 700;
       margin: 0 14px;
-      font-weight: 600;
       font-size: 14px;
     }
 
     section {
       width: 96%;
-      max-width: 1500px;
-      margin: 40px auto;
+      max-width: 1600px;
+      margin: 42px auto;
     }
 
     .section-title {
-      margin-bottom: 20px;
       border-left: 6px solid #0b5cad;
       padding-left: 14px;
+      margin-bottom: 24px;
     }
 
     .section-title h2 {
-      font-size: 28px;
+      font-size: 30px;
       color: #0b2545;
     }
 
     .section-title p {
-      color: #5d6b7a;
+      color: #5e6c7b;
       margin-top: 4px;
     }
 
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+      gap: 30px;
     }
 
     .card {
-      background: white;
-      border: 1px solid #d7dee8;
+      background: #ffffff;
+      border: 1px solid #d6deea;
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
     }
 
     .card img {
@@ -106,26 +106,241 @@
     }
 
     .card-content {
-      padding: 18px 20px 22px;
+      padding: 20px;
     }
 
     .card-content h3 {
       color: #0b2545;
+      font-size: 22px;
       margin-bottom: 8px;
-      font-size: 20px;
     }
 
     .card-content p {
-      color: #4d5c6c;
+      color: #4b5b6a;
       font-size: 15px;
     }
 
     .tags {
-      margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-top: 14px;
     }
 
     .tag {
-      background
+      background: #e8f1fb;
+      color: #0b3a68;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .about-box {
+      background: #ffffff;
+      border: 1px solid #d6deea;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    .about-box p {
+      margin-bottom: 14px;
+      color: #3f4f5f;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #061c36;
+      color: #d8e6f5;
+      text-align: center;
+      padding: 28px 16px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      header h2 {
+        font-size: 18px;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Sagar Chaudhary</h1>
+    <h2>Mechanical Designer | CAD Design & Drafting</h2>
+    <p>
+      Portfolio showcasing AutoCAD drafting, Autodesk Inventor modeling, 3D assemblies,
+      CFD analysis, mechanical systems, field deployment, and technical documentation.
+    </p>
+  </header>
+
+  <nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="portfolio">
+    <div class="section-title">
+      <h2>Mechanical CAD Portfolio</h2>
+      <p>Selected sanitized samples. Images can be added, removed, or reordered anytime.</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <div class="card">
+        <img src="images/assembly-design.png" alt="Assembly Design and Documentation">
+        <div class="card-content">
+          <h3>Assembly Design & Documentation</h3>
+          <p>Assembly modeling, BOM structure, component integration, and technical documentation.</p>
+          <div class="tags">
+            <span class="tag">Inventor</span>
+            <span class="tag">Assembly</span>
+            <span class="tag">BOM</span>
+            <span class="tag">Documentation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/3d-part-creation.png" alt="3D Part Creation">
+        <div class="card-content">
+          <h3>3D Part Creation</h3>
+          <p>3D modeling, feature development, detail views, and manufacturing drawing awareness.</p>
+          <div class="tags">
+            <span class="tag">Inventor</span>
+            <span class="tag">3D Modeling</span>
+            <span class="tag">Part Design</span>
+            <span class="tag">Detailing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/2d-drawing-documentation.png" alt="2D Drawing Documentation">
+        <div class="card-content">
+          <h3>2D Drawing Documentation</h3>
+          <p>Orthographic views, dimensioning, drawing layout, and AutoCAD documentation.</p>
+          <div class="tags">
+            <span class="tag">AutoCAD</span>
+            <span class="tag">2D Drafting</span>
+            <span class="tag">Dimensioning</span>
+            <span class="tag">Layout</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/cfd-modeling-integration.png" alt="CFD and 3D Modeling Integration">
+        <div class="card-content">
+          <h3>CFD & 3D Modeling Integration</h3>
+          <p>Flow analysis, structural evaluation, design optimization, and manufacturing output.</p>
+          <div class="tags">
+            <span class="tag">CFD</span>
+            <span class="tag">Inventor</span>
+            <span class="tag">Design Optimization</span>
+            <span class="tag">Analysis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/turbine-assembly.png" alt="Hydrokinetic Turbine Assembly">
+        <div class="card-content">
+          <h3>Hydrokinetic Turbine Assembly</h3>
+          <p>Mechanical system modeling, component integration, and product development support.</p>
+          <div class="tags">
+            <span class="tag">Inventor</span>
+            <span class="tag">Mechanical Systems</span>
+            <span class="tag">Product Development</span>
+            <span class="tag">Assembly</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/culvert-deployment.png" alt="Culvert Deployment and Field Validation">
+        <div class="card-content">
+          <h3>Culvert Deployment & Field Validation</h3>
+          <p>Design-to-deployment experience, constructability, field support, and validation.</p>
+          <div class="tags">
+            <span class="tag">Field Deployment</span>
+            <span class="tag">Constructability</span>
+            <span class="tag">Documentation</span>
+            <span class="tag">Civil Infrastructure</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/residential-duct-layout.png" alt="Residential Duct Layout">
+        <div class="card-content">
+          <h3>Residential Duct Layout</h3>
+          <p>2D HVAC layout, air distribution, duct routing, and residential mechanical drafting.</p>
+          <div class="tags">
+            <span class="tag">AutoCAD</span>
+            <span class="tag">HVAC Layout</span>
+            <span class="tag">Duct Design</span>
+            <span class="tag">2D Drawing</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title">
+      <h2>About</h2>
+      <p>Mechanical design background focused on practical CAD, documentation, and implementation.</p>
+    </div>
+
+    <div class="about-box">
+      <p>
+        Mechanical Designer with experience supporting product development, 3D modeling,
+        2D drafting, assemblies, fabrication drawings, CFD analysis exposure, technical
+        documentation, vendor coordination, and field implementation.
+      </p>
+      <p>
+        Software exposure includes AutoCAD, Autodesk Inventor, Autodesk Simulation CFD,
+        Microsoft Excel, and basic/short-term SolidWorks exposure.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Available for Mechanical Designer, CAD Designer, and Mechanical Design Technologist roles.</p>
+    </div>
+
+    <div class="about-box">
+      <p><strong>Location:</strong> Calgary, Alberta, Canada</p>
+      <p><strong>LinkedIn:</strong> Add your LinkedIn profile link here</p>
+      <p><strong>Email:</strong> Add professional email here</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Sagar Chaudhary. Mechanical CAD Design Portfolio.
+  </footer>
+
+</body>
+</html>
