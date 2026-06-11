@@ -9,9 +9,7 @@
 
     :root {
       --navy:      #0d1f3c;
-      --navy-mid:  #16325c;
       --acc:       #e8a020;
-      --acc-light: #fdf3dc;
       --acc-hover: #c98010;
       --rule:      #dde3ec;
       --bg:        #f5f7fa;
@@ -66,31 +64,48 @@
     }
     .hero > * { position: relative; z-index: 1; }
 
-    .hero-eyebrow { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acc); margin-bottom: 1rem; }
+    .hero-eyebrow {
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--acc); margin-bottom: 0.9rem;
+    }
 
+    /* Name: matches the reference image style — bold condensed caps, yellow fill, orange stroke */
     .hero-name {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 700;
-      color: var(--acc);
-      -webkit-text-stroke: 1.5px #ffffff;
+      font-size: clamp(1.8rem, 3.8vw, 3rem);
+      font-weight: 900;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffe066;
+      -webkit-text-stroke: 2px var(--acc);
       paint-order: stroke fill;
       line-height: 1.05;
-      margin-bottom: 0.6rem;
-      letter-spacing: 0.02em;
-      font-family: Georgia, 'Times New Roman', serif;
+      margin-bottom: 0.55rem;
     }
 
-    .hero-title { font-size: clamp(0.9rem, 1.8vw, 1.2rem); font-weight: 400; color: #dde8f5; letter-spacing: 0.03em; margin-bottom: 1.6rem; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+    /* Subtitle with orange border box */
+    .hero-title {
+      display: inline-block;
+      font-size: clamp(0.78rem, 1.4vw, 1rem);
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1.5px solid var(--acc);
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1.4rem;
+      background: rgba(10,18,34,0.45);
+    }
 
-    .hero-skills { display: flex; flex-wrap: wrap; gap: 0.45rem; max-width: 640px; }
+    .hero-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; max-width: 620px; }
     .hero-skills span {
-      font-size: 0.78rem; font-family: var(--font-mono); letter-spacing: 0.06em;
-      padding: 0.3rem 0.85rem;
-      border: 1px solid rgba(232,160,32,0.55);
-      color: #f5d080; background: rgba(10,18,34,0.55); backdrop-filter: blur(2px);
+      font-size: 0.72rem; font-family: var(--font-mono); letter-spacing: 0.05em;
+      padding: 0.28rem 0.75rem;
+      border: 1px solid rgba(232,160,32,0.5);
+      color: #f5d080; background: rgba(10,18,34,0.55);
     }
 
-    .hero-location { margin-top: 1.6rem; font-size: 0.75rem; color: rgba(255,255,255,0.4); font-family: var(--font-mono); letter-spacing: 0.08em; }
+    .hero-location { margin-top: 1.4rem; font-size: 0.72rem; color: rgba(255,255,255,0.38); font-family: var(--font-mono); letter-spacing: 0.08em; }
 
     /* SECTIONS */
     section { padding: 4.5rem 2.5rem; }
@@ -174,7 +189,7 @@
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
       .nav-links { display: none; }
-      .hero { height: 60vw; max-height: none; min-height: 300px; padding: 0 1.4rem; }
+      .hero { height: 70vw; max-height: none; min-height: 280px; padding: 0 1.4rem; }
       section { padding: 3rem 1.4rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
@@ -395,8 +410,8 @@
       Open to Mechanical Designer, CAD Designer, and Design Technologist roles in Calgary and surrounding areas.
     </p>
     <div class="contact-links">
-      <a class="contact-btn" href="mailto:sagarchaudhary2106@gmail.com">&#9993; Email</a>
-      <a class="contact-btn" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="contact-btn" href="mailto:sagarchaudhary2106@gmail.com" target="_blank" rel="noopener">&#9993; &nbsp;sagarchaudhary2106@gmail.com</a>
+      <a class="contact-btn" href="https://www.linkedin.com/in/sagar-chaudhary-689b5a411" target="_blank" rel="noopener">in &nbsp;LinkedIn</a>
     </div>
     <p class="contact-note">// Calgary, Alberta &nbsp;·&nbsp; Canada &nbsp;·&nbsp; Open to hybrid &amp; on-site</p>
   </section>
