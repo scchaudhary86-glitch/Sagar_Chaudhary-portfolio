@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Sagar Chaudhary — Mechanical Designer | CAD Design & Drafting</title>
 
   <style>
@@ -14,7 +15,6 @@
 
     :root {
       --navy: #0d1f3c;
-      --navy-soft: #142a4a;
       --acc: #e8a020;
       --acc-hover: #c98010;
       --rule: #dde3ec;
@@ -149,7 +149,7 @@
       color: #ffffff;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      border: 2px solid var(--acc);
+      border: 1.25px solid var(--acc);
       padding: 0.34rem 0.95rem;
       margin-bottom: 1.45rem;
       background: rgba(10,18,34,0.48);
@@ -167,8 +167,8 @@
       font-family: var(--font-mono);
       letter-spacing: 0.05em;
       padding: 0.3rem 0.78rem;
-      border: 2px solid rgba(232,160,32,0.75);
-      color: #f7d58a;
+      border: 1.25px solid rgba(232,160,32,0.72);
+      color: #ffffff;
       background: rgba(10,18,34,0.58);
       font-weight: 700;
     }
@@ -323,7 +323,7 @@
       padding: 0.3rem 0.72rem;
       background: var(--tag-bg);
       color: var(--tag-text);
-      border: 2px solid var(--tag-border);
+      border: 1.25px solid var(--tag-border);
       border-radius: 2px;
       font-weight: 700;
     }
@@ -342,7 +342,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.45rem 1.1rem;
-      border: 2px solid var(--acc);
+      border: 1.25px solid var(--acc);
       background: transparent;
       color: var(--acc-hover);
       cursor: pointer;
@@ -369,7 +369,7 @@
 
     .reorder-mode .card {
       cursor: grab;
-      border: 2px dashed var(--acc);
+      border: 1.25px dashed var(--acc);
     }
 
     .reorder-mode .card:active {
@@ -381,7 +381,7 @@
     }
 
     .card.drag-over {
-      border: 2px solid var(--acc);
+      border: 1.25px solid var(--acc);
       box-shadow: 0 0 0 3px rgba(232,160,32,0.25);
     }
 
@@ -518,7 +518,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
-      border: 2px solid var(--acc);
+      border: 1.25px solid var(--acc);
       color: var(--acc);
       background: transparent;
       transition: background 0.2s, color 0.2s;
@@ -623,7 +623,7 @@
   </nav>
 
   <section class="hero">
-    <p class="hero-eyebrow">Calgary, Alberta &nbsp;·&nbsp; Available for Opportunities</p>
+    <p class="hero-eyebrow">Calgary, Alberta &nbsp;·&nbsp; Mechanical Design Portfolio</p>
     <h1 class="hero-name">Sagar Chaudhary</h1>
     <p class="hero-title">Mechanical Design &nbsp;|&nbsp; CAD Drafting &nbsp;|&nbsp; Technical Documentation</p>
 
@@ -640,7 +640,7 @@
       <span>BOM / Material Lists</span>
     </div>
 
-    <p class="hero-location">// Calgary, AB &nbsp;·&nbsp; Open to local &amp; remote roles</p>
+    <p class="hero-location">// Calgary, AB &nbsp;·&nbsp; CAD Design & Drafting Portfolio</p>
   </section>
 
   <section id="portfolio">
@@ -842,8 +842,8 @@
     <p class="section-label">Get In Touch</p>
     <h2 class="section-title">Contact</h2>
 
-    <p style="color:#b0c4de; font-size:0.88rem; max-width:520px; margin:0 auto 0.5rem;">
-      Open to Mechanical Designer, CAD Designer, and Mechanical Design Technologist roles in Calgary and surrounding areas.
+    <p style="color:#b0c4de; font-size:0.88rem; max-width:620px; margin:0 auto 0.5rem;">
+      Mechanical Designer | CAD Designer | Design Engineer | Mechanical Design Technologist
     </p>
 
     <div class="contact-links">
@@ -851,7 +851,7 @@
       <a class="contact-btn" href="https://www.linkedin.com/in/sagar-chaudhary-689b5a411" target="_blank" rel="noopener">in &nbsp;LinkedIn</a>
     </div>
 
-    <p class="contact-note">// Calgary, Alberta &nbsp;·&nbsp; Canada &nbsp;·&nbsp; Open to hybrid &amp; on-site</p>
+    <p class="contact-note">// Calgary, Alberta &nbsp;·&nbsp; Canada &nbsp;·&nbsp; Mechanical Design Portfolio</p>
   </section>
 
   <footer>
@@ -889,6 +889,7 @@
     }
 
     lbClose.addEventListener("click", closeLb);
+
     lb.addEventListener("click", e => {
       if (e.target === lb) closeLb();
     });
@@ -940,6 +941,7 @@
 
       getCards().forEach(card => {
         card.draggable = reorderActive;
+
         card.removeEventListener("dragstart", onDragStart);
         card.removeEventListener("dragover", onDragOver);
         card.removeEventListener("dragleave", onDragLeave);
