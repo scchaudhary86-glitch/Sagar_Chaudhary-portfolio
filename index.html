@@ -20,48 +20,23 @@
       --muted:     #5a6a80;
       --tag-bg:    #fff4de;
       --tag-text:  #7a4800;
-      --tag-border:#e8c070;
+      --tag-border:#f0d9a0;
       --font-mono: 'Courier New', Courier, monospace;
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
     /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      background: var(--navy);
-      border-bottom: 2px solid var(--acc);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 2.5rem;
-      height: 54px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--navy); border-bottom: 2px solid var(--acc);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 54px;
     }
-    .nav-logo {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      color: var(--acc);
-      text-transform: uppercase;
-    }
+    .nav-logo { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--acc); text-transform: uppercase; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: #b0c4de;
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: #b0c4de; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--acc); }
 
     /* HERO */
@@ -69,8 +44,9 @@
       margin-top: 54px;
       background-image: url('images/hero-bg.png');
       background-size: cover;
-      background-position: center top;
-      background-color: #f0ebe2;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: #1a2a3a;
       padding: 0 2.5rem;
       display: flex;
       flex-direction: column;
@@ -78,184 +54,82 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      min-height: 480px;
+      height: 46vw;
+      max-height: 520px;
+      min-height: 340px;
     }
     .hero::before {
       content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        105deg,
-        rgba(8,16,30,0.65) 0%,
-        rgba(8,16,30,0.50) 38%,
-        rgba(8,16,30,0.18) 62%,
-        rgba(8,16,30,0.02) 100%
-      );
-      pointer-events: none;
-      z-index: 0;
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(8,16,30,0.68) 0%, rgba(8,16,30,0.52) 40%, rgba(8,16,30,0.18) 65%, rgba(8,16,30,0.02) 100%);
+      pointer-events: none; z-index: 0;
     }
     .hero > * { position: relative; z-index: 1; }
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--acc);
-      margin-bottom: 1.2rem;
-    }
+
+    .hero-eyebrow { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--acc); margin-bottom: 1rem; }
+
     .hero-name {
       font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 200;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.75);
-      letter-distance: -0.02em;
+      font-weight: 700;
+      color: var(--acc);
+      -webkit-text-stroke: 1.5px #ffffff;
+      paint-order: stroke fill;
       line-height: 1.05;
       margin-bottom: 0.6rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
+      font-family: Georgia, 'Times New Roman', serif;
     }
-    .hero-title {
-      font-size: clamp(1rem, 2vw, 1.3rem);
-      font-weight: 400;
-      color: #dde8f5;
-      letter-spacing: 0.03em;
-      margin-bottom: 2rem;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
-    }
-    .hero-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      max-width: 640px;
-      align-items: center;
-    }
+
+    .hero-title { font-size: clamp(0.9rem, 1.8vw, 1.2rem); font-weight: 400; color: #dde8f5; letter-spacing: 0.03em; margin-bottom: 1.6rem; text-shadow: 0 1px 6px rgba(0,0,0,0.4); }
+
+    .hero-skills { display: flex; flex-wrap: wrap; gap: 0.45rem; max-width: 640px; }
     .hero-skills span {
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      letter-spacing: 0.05em;
-      padding: 0.3rem 0.8rem;
-      border: none;
-      color: rgba(255,255,255,0.65);
-      background: rgba(255,255,255,0.08);
-      border-radius: 2px;
+      font-size: 0.78rem; font-family: var(--font-mono); letter-spacing: 0.06em;
+      padding: 0.3rem 0.85rem;
+      border: 1px solid rgba(232,160,32,0.55);
+      color: #f5d080; background: rgba(10,18,34,0.55); backdrop-filter: blur(2px);
     }
-    .hero-location {
-      margin-top: 2rem;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.45);
-      font-family: var(--font-mono);
-      letter-spacing: 0.08em;
-    }
+
+    .hero-location { margin-top: 1.6rem; font-size: 0.75rem; color: rgba(255,255,255,0.4); font-family: var(--font-mono); letter-spacing: 0.08em; }
 
     /* SECTIONS */
     section { padding: 4.5rem 2.5rem; }
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--acc);
-      margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 2.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 2px solid var(--rule);
-    }
+    .section-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acc); margin-bottom: 0.5rem; }
+    .section-title { font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 2.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--rule); }
 
     /* PORTFOLIO */
     #portfolio { background: var(--white); }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr));
-      gap: 2rem;
-    }
-    .card {
-      background: var(--bg);
-      border: 1px solid var(--rule);
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 560px), 1fr)); gap: 2rem; }
+
+    .card { background: var(--bg); border: 1px solid var(--rule); display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
     .card:hover { box-shadow: 0 6px 28px rgba(13,31,60,0.13); transform: translateY(-2px); }
-    .card-img-wrap {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      background: #e8eff8;
-      position: relative;
-      cursor: zoom-in;
-    }
-    .card-img-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      background: #edf2f9;
-      transition: opacity 0.2s;
-    }
+
+    .card-img-wrap { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #e8eff8; position: relative; cursor: zoom-in; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #edf2f9; transition: opacity 0.2s; }
     .card-img-wrap:hover img { opacity: 0.88; }
     .card-img-wrap::before {
-      content: '⤢';
-      position: absolute;
-      bottom: 8px; right: 10px;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.9);
-      background: rgba(13,31,60,0.55);
-      padding: 2px 6px;
-      border-radius: 2px;
-      z-index: 2;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
+      content: '⤢'; position: absolute; bottom: 8px; right: 10px;
+      font-size: 1rem; color: rgba(255,255,255,0.9); background: rgba(13,31,60,0.55);
+      padding: 2px 6px; border-radius: 2px; z-index: 2; pointer-events: none;
+      opacity: 0; transition: opacity 0.2s;
     }
     .card-img-wrap:hover::before { opacity: 1; }
     .card-img-wrap::after {
-      content: attr(data-label);
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: #8ea8c4;
-      pointer-events: none;
+      content: attr(data-label); position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: #8ea8c4; pointer-events: none;
     }
     .card-img-wrap.has-img::after { display: none; }
+
     .card-body { padding: 1.2rem 1.4rem 1.4rem; display: flex; flex-direction: column; gap: 0.5rem; }
     .card-title { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.25; }
     .card-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
     .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
-    .tag {
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      letter-spacing: 0.04em;
-      padding: 0.28rem 0.7rem;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      border: 1px solid #f0d9a0;
-      border-radius: 2px;
-    }
+    .tag { font-size: 0.75rem; font-family: var(--font-mono); letter-spacing: 0.04em; padding: 0.28rem 0.7rem; background: var(--tag-bg); color: var(--tag-text); border: 1px solid var(--tag-border); border-radius: 2px; }
 
     /* REORDER */
     .reorder-bar { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.8rem; flex-wrap: wrap; }
-    .btn-reorder {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.45rem 1.1rem;
-      border: 1px solid var(--acc);
-      background: transparent;
-      color: var(--acc);
-      cursor: pointer;
-      transition: background 0.15s, color 0.15s;
-    }
+    .btn-reorder { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.45rem 1.1rem; border: 1px solid var(--acc); background: transparent; color: var(--acc); cursor: pointer; transition: background 0.15s, color 0.15s; }
     .btn-reorder:hover, .btn-reorder.active { background: var(--acc); color: var(--navy); }
     .reorder-hint { font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); display: none; }
     .reorder-mode .reorder-hint { display: inline; }
@@ -266,42 +140,12 @@
     .card.dragging { opacity: 0.4; transform: scale(0.97); }
 
     /* LIGHTBOX */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 500;
-      background: rgba(5,12,24,0.92);
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      cursor: zoom-out;
-    }
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 500; background: rgba(5,12,24,0.92); align-items: center; justify-content: center; padding: 1.5rem; cursor: zoom-out; }
     .lightbox.open { display: flex; }
     .lightbox img { max-width: 100%; max-height: 90vh; object-fit: contain; box-shadow: 0 12px 60px rgba(0,0,0,0.6); cursor: default; }
-    .lightbox-close {
-      position: absolute;
-      top: 1rem; right: 1.2rem;
-      font-size: 1.8rem;
-      color: rgba(255,255,255,0.7);
-      cursor: pointer;
-      line-height: 1;
-      background: none;
-      border: none;
-      transition: color 0.15s;
-    }
+    .lightbox-close { position: absolute; top: 1rem; right: 1.2rem; font-size: 1.8rem; color: rgba(255,255,255,0.7); cursor: pointer; line-height: 1; background: none; border: none; transition: color 0.15s; }
     .lightbox-close:hover { color: var(--acc); }
-    .lightbox-caption {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      color: rgba(255,255,255,0.45);
-      white-space: nowrap;
-    }
+    .lightbox-caption { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); white-space: nowrap; }
 
     /* ABOUT */
     #about { background: var(--bg); }
@@ -309,14 +153,7 @@
     .about-text p { font-size: 0.93rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.75; }
     .skills-block { margin-top: 0.5rem; }
     .skills-group { margin-bottom: 1.4rem; }
-    .skills-group-label {
-      font-size: 0.68rem;
-      font-family: var(--font-mono);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--acc-hover);
-      margin-bottom: 0.55rem;
-    }
+    .skills-group-label { font-size: 0.68rem; font-family: var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--acc-hover); margin-bottom: 0.55rem; }
     .skills-group-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 
     /* CONTACT */
@@ -324,34 +161,12 @@
     #contact .section-label { color: var(--acc); }
     #contact .section-title { color: var(--white); border-bottom-color: rgba(255,255,255,0.1); }
     .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .contact-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.8rem;
-      font-size: 0.82rem;
-      font-family: var(--font-mono);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid var(--acc);
-      color: var(--acc);
-      background: transparent;
-      transition: background 0.2s, color 0.2s;
-    }
+    .contact-btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.8rem; font-size: 0.82rem; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--acc); color: var(--acc); background: transparent; transition: background 0.2s, color 0.2s; }
     .contact-btn:hover { background: var(--acc); color: var(--navy); }
     .contact-note { margin-top: 2rem; font-size: 0.72rem; color: #3d5a7a; font-family: var(--font-mono); letter-spacing: 0.06em; }
 
     /* FOOTER */
-    footer {
-      background: #080f1e;
-      padding: 1.2rem 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    footer { background: #080f1e; padding: 1.2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
     footer span { font-size: 0.7rem; color: #3a5270; font-family: var(--font-mono); }
 
     /* RESPONSIVE */
@@ -359,7 +174,7 @@
     @media (max-width: 600px) {
       nav { padding: 0 1.2rem; }
       .nav-links { display: none; }
-      .hero { padding: 4rem 1.4rem 3.5rem; }
+      .hero { height: 60vw; max-height: none; min-height: 300px; padding: 0 1.4rem; }
       section { padding: 3rem 1.4rem; }
       .portfolio-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
@@ -370,8 +185,8 @@
 <body>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightbox-close">&times;</button>
     <img id="lightbox-img" src="" alt="" />
     <span class="lightbox-caption" id="lightbox-caption"></span>
   </div>
@@ -428,10 +243,7 @@
           <h3 class="card-title">Assembly Design &amp; Documentation</h3>
           <p class="card-desc">Multi-component mechanical assembly with full BOM, part callouts, and fabrication-ready annotation.</p>
           <div class="card-tags">
-            <span class="tag">Autodesk Inventor</span>
-            <span class="tag">Assembly</span>
-            <span class="tag">BOM</span>
-            <span class="tag">Technical Docs</span>
+            <span class="tag">Autodesk Inventor</span><span class="tag">Assembly</span><span class="tag">BOM</span><span class="tag">Technical Docs</span>
           </div>
         </div>
       </div>
@@ -445,10 +257,7 @@
           <h3 class="card-title">3D Part Creation</h3>
           <p class="card-desc">Parametric solid modelling of machined and fabricated parts, designed for downstream drawing extraction.</p>
           <div class="card-tags">
-            <span class="tag">Autodesk Inventor</span>
-            <span class="tag">SolidWorks</span>
-            <span class="tag">3D Modeling</span>
-            <span class="tag">Parametric Design</span>
+            <span class="tag">Autodesk Inventor</span><span class="tag">SolidWorks</span><span class="tag">3D Modeling</span><span class="tag">Parametric Design</span>
           </div>
         </div>
       </div>
@@ -462,15 +271,12 @@
           <h3 class="card-title">2D Drawing Documentation</h3>
           <p class="card-desc">Production-ready orthographic drawings with GD&amp;T, tolerances, title blocks, and revision control.</p>
           <div class="card-tags">
-            <span class="tag">AutoCAD</span>
-            <span class="tag">2D Drafting</span>
-            <span class="tag">GD&amp;T</span>
-            <span class="tag">Fabrication Drawings</span>
+            <span class="tag">AutoCAD</span><span class="tag">2D Drafting</span><span class="tag">GD&amp;T</span><span class="tag">Fabrication Drawings</span>
           </div>
         </div>
       </div>
 
-      <!-- Card 4 — CFD Flow Analysis (orange/velocity streamlines image) -->
+      <!-- Card 4 — CFD Flow Analysis -->
       <div class="card">
         <div class="card-img-wrap" data-label="cfd-flow-analysis.png" data-title="CFD Flow Analysis">
           <img src="images/cfd-flow-analysis.png" alt="CFD Flow Analysis" loading="lazy" />
@@ -479,15 +285,12 @@
           <h3 class="card-title">CFD Flow Analysis</h3>
           <p class="card-desc">Velocity streamline visualization and pressure distribution analysis for a flow channel with side vane guidance. Covers 3D fluid behaviour, high-resistance vane testing, and design evaluation for hydrokinetic applications.</p>
           <div class="card-tags">
-            <span class="tag">Autodesk Simulation CFD</span>
-            <span class="tag">Flow Analysis</span>
-            <span class="tag">Pressure Analysis</span>
-            <span class="tag">Design Evaluation</span>
+            <span class="tag">Autodesk Simulation CFD</span><span class="tag">Flow Analysis</span><span class="tag">Pressure Analysis</span><span class="tag">Design Evaluation</span>
           </div>
         </div>
       </div>
 
-      <!-- Card 5 — CFD & 3D Modeling Integration (blue velocity + turbine 3D model image) -->
+      <!-- Card 5 — CFD & 3D Modeling Integration -->
       <div class="card">
         <div class="card-img-wrap" data-label="cfd-modeling-integration.png" data-title="CFD & 3D Modeling Integration">
           <img src="images/cfd-modeling-integration.png" alt="CFD & 3D Modeling Integration" loading="lazy" />
@@ -496,11 +299,7 @@
           <h3 class="card-title">CFD &amp; 3D Modeling Integration</h3>
           <p class="card-desc">End-to-end workflow from CFD velocity distribution to 3D assembly model — covering structural analysis, design optimization, material selection, and manufacturing-ready output for a hydrokinetic turbine with side vanes.</p>
           <div class="card-tags">
-            <span class="tag">Autodesk Simulation CFD</span>
-            <span class="tag">Autodesk Inventor</span>
-            <span class="tag">Structural Analysis</span>
-            <span class="tag">Design Optimization</span>
-            <span class="tag">Manufacturing Output</span>
+            <span class="tag">Autodesk Simulation CFD</span><span class="tag">Autodesk Inventor</span><span class="tag">Structural Analysis</span><span class="tag">Design Optimization</span><span class="tag">Manufacturing Output</span>
           </div>
         </div>
       </div>
@@ -514,10 +313,7 @@
           <h3 class="card-title">Hydrokinetic Turbine Assembly</h3>
           <p class="card-desc">Full assembly design for a hydrokinetic turbine system — rotor, shaft, and structural frame with fit-up documentation.</p>
           <div class="card-tags">
-            <span class="tag">Assembly Design</span>
-            <span class="tag">Mechanical Systems</span>
-            <span class="tag">Autodesk Inventor</span>
-            <span class="tag">Fabrication Support</span>
+            <span class="tag">Assembly Design</span><span class="tag">Mechanical Systems</span><span class="tag">Autodesk Inventor</span><span class="tag">Fabrication Support</span>
           </div>
         </div>
       </div>
@@ -531,10 +327,7 @@
           <h3 class="card-title">Culvert Deployment &amp; Field Validation</h3>
           <p class="card-desc">Design-to-deployment documentation for culvert installation — constructability drawings, field mark-ups, and as-built records.</p>
           <div class="card-tags">
-            <span class="tag">AutoCAD</span>
-            <span class="tag">Field Constructability</span>
-            <span class="tag">Civil/Mech Interface</span>
-            <span class="tag">As-Built Docs</span>
+            <span class="tag">AutoCAD</span><span class="tag">Field Constructability</span><span class="tag">Civil/Mech Interface</span><span class="tag">As-Built Docs</span>
           </div>
         </div>
       </div>
@@ -548,15 +341,12 @@
           <h3 class="card-title">Residential Duct Layout</h3>
           <p class="card-desc">HVAC duct routing and sizing plan for a residential build — coordinated with mechanical and architectural drawings.</p>
           <div class="card-tags">
-            <span class="tag">AutoCAD</span>
-            <span class="tag">HVAC / Ducting</span>
-            <span class="tag">Mechanical Systems</span>
-            <span class="tag">2D Drafting</span>
+            <span class="tag">AutoCAD</span><span class="tag">HVAC / Ducting</span><span class="tag">Mechanical Systems</span><span class="tag">2D Drafting</span>
           </div>
         </div>
       </div>
 
-    </div><!-- /portfolio-grid -->
+    </div>
   </section>
 
   <!-- ABOUT -->
@@ -572,36 +362,25 @@
         <div class="skills-group">
           <p class="skills-group-label">CAD Software</p>
           <div class="skills-group-tags">
-            <span class="tag">AutoCAD</span>
-            <span class="tag">Autodesk Inventor</span>
-            <span class="tag">SolidWorks (basic)</span>
+            <span class="tag">AutoCAD</span><span class="tag">Autodesk Inventor</span><span class="tag">SolidWorks (basic)</span>
           </div>
         </div>
         <div class="skills-group">
           <p class="skills-group-label">Design Capabilities</p>
           <div class="skills-group-tags">
-            <span class="tag">3D Modeling</span>
-            <span class="tag">Assembly Design</span>
-            <span class="tag">2D Drafting</span>
-            <span class="tag">GD&amp;T</span>
-            <span class="tag">CFD Exposure</span>
+            <span class="tag">3D Modeling</span><span class="tag">Assembly Design</span><span class="tag">2D Drafting</span><span class="tag">GD&amp;T</span><span class="tag">CFD Exposure</span>
           </div>
         </div>
         <div class="skills-group">
           <p class="skills-group-label">Documentation</p>
           <div class="skills-group-tags">
-            <span class="tag">Fabrication Drawings</span>
-            <span class="tag">BOM / Material Lists</span>
-            <span class="tag">Technical Specs</span>
-            <span class="tag">As-Built Records</span>
+            <span class="tag">Fabrication Drawings</span><span class="tag">BOM / Material Lists</span><span class="tag">Technical Specs</span><span class="tag">As-Built Records</span>
           </div>
         </div>
         <div class="skills-group">
           <p class="skills-group-label">Workflow</p>
           <div class="skills-group-tags">
-            <span class="tag">Vendor Coordination</span>
-            <span class="tag">Field Constructability</span>
-            <span class="tag">Design-to-Deployment</span>
+            <span class="tag">Vendor Coordination</span><span class="tag">Field Constructability</span><span class="tag">Design-to-Deployment</span>
           </div>
         </div>
       </div>
@@ -629,10 +408,9 @@
   </footer>
 
   <script>
-    // LIGHTBOX
-    const lb      = document.getElementById('lightbox');
-    const lbImg   = document.getElementById('lightbox-img');
-    const lbCap   = document.getElementById('lightbox-caption');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCap = document.getElementById('lightbox-caption');
     const lbClose = document.getElementById('lightbox-close');
 
     function bindLightbox() {
@@ -642,8 +420,7 @@
           if (document.getElementById('portfolio-grid').classList.contains('reorder-mode')) return;
           const img = wrap.querySelector('img');
           if (!img) return;
-          lbImg.src = img.src;
-          lbImg.alt = img.alt;
+          lbImg.src = img.src; lbImg.alt = img.alt;
           lbCap.textContent = wrap.dataset.title || img.alt;
           lb.classList.add('open');
           document.body.style.overflow = 'hidden';
@@ -651,12 +428,7 @@
       });
     }
 
-    function closeLb() {
-      lb.classList.remove('open');
-      document.body.style.overflow = '';
-      lbImg.src = '';
-    }
-
+    function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
     lbClose.addEventListener('click', closeLb);
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
@@ -666,27 +438,17 @@
       else img.addEventListener('load', () => img.parentElement.classList.add('has-img'));
     });
 
-    // DRAG-AND-DROP REORDER
     const STORAGE_KEY = 'sc-portfolio-order';
     const grid = document.getElementById('portfolio-grid');
-    let reorderActive = false;
-    let dragSrc = null;
+    let reorderActive = false, dragSrc = null;
 
     function getCards() { return [...grid.querySelectorAll('.card')]; }
-
-    function saveOrder() {
-      const order = getCards().map(c => c.dataset.cardId);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
-    }
-
+    function saveOrder() { localStorage.setItem(STORAGE_KEY, JSON.stringify(getCards().map(c => c.dataset.cardId))); }
     function loadOrder() {
       try {
         const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
         if (!saved || !Array.isArray(saved)) return;
-        saved.forEach(id => {
-          const card = grid.querySelector('[data-card-id="' + id + '"]');
-          if (card) grid.appendChild(card);
-        });
+        saved.forEach(id => { const c = grid.querySelector('[data-card-id="' + id + '"]'); if (c) grid.appendChild(c); });
       } catch(e) {}
     }
 
@@ -700,19 +462,9 @@
       resetBtn.style.display = reorderActive ? 'inline-block' : 'none';
       getCards().forEach(card => {
         card.draggable = reorderActive;
-        if (reorderActive) {
-          card.addEventListener('dragstart', onDragStart);
-          card.addEventListener('dragover',  onDragOver);
-          card.addEventListener('dragleave', onDragLeave);
-          card.addEventListener('drop',      onDrop);
-          card.addEventListener('dragend',   onDragEnd);
-        } else {
-          card.removeEventListener('dragstart', onDragStart);
-          card.removeEventListener('dragover',  onDragOver);
-          card.removeEventListener('dragleave', onDragLeave);
-          card.removeEventListener('drop',      onDrop);
-          card.removeEventListener('dragend',   onDragEnd);
-        }
+        const fn = reorderActive ? 'addEventListener' : 'removeEventListener';
+        card[fn]('dragstart', onDragStart); card[fn]('dragover', onDragOver);
+        card[fn]('dragleave', onDragLeave); card[fn]('drop', onDrop); card[fn]('dragend', onDragEnd);
       });
       if (!reorderActive) saveOrder();
       bindLightbox();
@@ -720,31 +472,21 @@
 
     function resetOrder() {
       localStorage.removeItem(STORAGE_KEY);
-      const cards = getCards().sort((a,b) => parseInt(a.dataset.cardIndex) - parseInt(b.dataset.cardIndex));
-      cards.forEach(c => grid.appendChild(c));
+      getCards().sort((a,b) => parseInt(a.dataset.cardIndex) - parseInt(b.dataset.cardIndex)).forEach(c => grid.appendChild(c));
     }
 
     function onDragStart(e) { dragSrc = this; this.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; }
     function onDragOver(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; if (this !== dragSrc) this.classList.add('drag-over'); }
     function onDragLeave() { this.classList.remove('drag-over'); }
     function onDrop(e) {
-      e.preventDefault();
-      this.classList.remove('drag-over');
+      e.preventDefault(); this.classList.remove('drag-over');
       if (this === dragSrc) return;
-      const cards = getCards();
-      const srcIdx  = cards.indexOf(dragSrc);
-      const destIdx = cards.indexOf(this);
-      if (srcIdx < destIdx) grid.insertBefore(dragSrc, this.nextSibling);
-      else grid.insertBefore(dragSrc, this);
+      const cards = getCards(), si = cards.indexOf(dragSrc), di = cards.indexOf(this);
+      if (si < di) grid.insertBefore(dragSrc, this.nextSibling); else grid.insertBefore(dragSrc, this);
     }
     function onDragEnd() { this.classList.remove('dragging'); getCards().forEach(c => c.classList.remove('drag-over')); }
 
-    // Assign stable IDs
-    getCards().forEach((card, i) => {
-      card.dataset.cardId    = 'card-' + i;
-      card.dataset.cardIndex = i;
-    });
-
+    getCards().forEach((card, i) => { card.dataset.cardId = 'card-' + i; card.dataset.cardIndex = i; });
     loadOrder();
     bindLightbox();
   </script>
