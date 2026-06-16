@@ -450,54 +450,72 @@
     }
 
     /* =========================
-       CONTACT
+       CONTACT — SHORTER & FULL WIDTH
        ========================= */
 
     #contact {
       background: var(--navy);
       color: #ffffff;
-      text-align: center;
+      text-align: left;
+      padding: 46px 0 42px;
+    }
+
+    #contact .section-kicker {
+      text-align: left;
+      margin-bottom: 8px;
     }
 
     #contact .section-title {
       color: #ffffff;
       border-bottom-color: rgba(255, 255, 255, 0.14);
-      text-align: center;
-    }
-
-    #contact .section-kicker {
-      text-align: center;
+      text-align: left;
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      font-size: 1.8rem;
     }
 
     .contact-card {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(232, 160, 32, 0.38);
-      padding: 34px;
-      max-width: 850px;
-      margin: 0 auto;
+      padding: 22px 28px;
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1.7fr 0.9fr 1.15fr 0.8fr;
+      gap: 18px;
+      align-items: center;
     }
 
-    .contact-card p {
-      line-height: 1.8;
-      margin-bottom: 12px;
-      color: rgba(255, 255, 255, 0.9);
+    .contact-item {
+      min-width: 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.92rem;
+      line-height: 1.45;
     }
 
-    .contact-card strong {
+    .contact-item strong {
       color: var(--accent);
+      display: block;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
     }
 
-    .contact-card a {
+    .contact-item a {
       color: #ffffff;
       border-bottom: 1px solid var(--accent);
+      word-break: break-word;
     }
 
     footer {
       background: #071326;
       color: rgba(255, 255, 255, 0.72);
       text-align: center;
-      padding: 20px;
-      font-size: 0.82rem;
+      padding: 14px 20px;
+      font-size: 0.78rem;
       letter-spacing: 0.08em;
     }
 
@@ -570,6 +588,10 @@
 
       .portfolio-img-wrap {
         height: 310px;
+      }
+
+      .contact-card {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -698,9 +720,22 @@
       }
 
       .about-box,
-      .skills-panel,
-      .contact-card {
+      .skills-panel {
         padding: 24px;
+      }
+
+      #contact {
+        padding: 42px 0 38px;
+      }
+
+      #contact .section-title {
+        font-size: 1.55rem;
+      }
+
+      .contact-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 22px;
       }
     }
 
@@ -980,13 +1015,25 @@
       <h2 class="section-title">Available for Opportunities</h2>
 
       <div class="contact-card">
-        <p>
-          <strong>Target Roles:</strong>
+        <div class="contact-item">
+          <strong>Target Roles</strong>
           Mechanical Designer | CAD Designer | Design Engineer | Mechanical Design Technologist
-        </p>
-        <p><strong>Location:</strong> Calgary, Alberta, Canada</p>
-        <p><strong>Email:</strong> <a href="mailto:sagarchaudhary2106@gmail.com">sagarchaudhary2106@gmail.com</a></p>
-        <p><strong>Portfolio:</strong> <a href="https://sagarchaudhary.site">sagarchaudhary.site</a></p>
+        </div>
+
+        <div class="contact-item">
+          <strong>Location</strong>
+          Calgary, Alberta, Canada
+        </div>
+
+        <div class="contact-item">
+          <strong>Email</strong>
+          <a href="mailto:sagarchaudhary2106@gmail.com">sagarchaudhary2106@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <strong>Portfolio</strong>
+          <a href="https://sagarchaudhary.site">sagarchaudhary.site</a>
+        </div>
       </div>
     </div>
   </section>
