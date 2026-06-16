@@ -299,7 +299,7 @@
     .portfolio-img-wrap {
       width: 100%;
       aspect-ratio: 16 / 10;
-      background: #e9edf4;
+      background: #ffffff;
       overflow: hidden;
     }
 
@@ -307,6 +307,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
     }
 
     .portfolio-body {
@@ -443,7 +444,9 @@
     }
 
     /* ==================================================
-       MOBILE HERO FIX — NAME + SKILL TABS NOT CUTTING
+       MOBILE FIXES
+       1. Hero name and skill tabs do not cut
+       2. Portfolio images show full title/top
        ================================================== */
 
     @media (max-width: 768px) {
@@ -547,12 +550,35 @@
         font-size: 2rem;
       }
 
+      .portfolio-card {
+        overflow: visible !important;
+      }
+
+      .portfolio-img-wrap {
+        aspect-ratio: auto !important;
+        height: auto !important;
+        background: #ffffff !important;
+        overflow: visible !important;
+      }
+
+      .portfolio-img-wrap img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        object-position: center top !important;
+      }
+
       .portfolio-body {
         padding: 18px 18px 22px;
       }
 
       .portfolio-body h3 {
         font-size: 1.05rem;
+      }
+
+      .portfolio-body p {
+        font-size: 0.95rem;
+        line-height: 1.65;
       }
 
       .about-box,
@@ -584,6 +610,15 @@
 
       .section-title {
         font-size: 1.85rem;
+      }
+
+      .portfolio-body h3 {
+        font-size: 1rem;
+        line-height: 1.35;
+      }
+
+      .portfolio-body p {
+        font-size: 0.92rem;
       }
     }
   </style>
