@@ -28,6 +28,9 @@
       --tag-border: rgba(232, 160, 32, 0.78);
       --font-mono: "Courier New", Courier, monospace;
       --font-main: Arial, Helvetica, sans-serif;
+
+      /* Wider layout: smaller left/right margins */
+      --page-width: min(1700px, calc(100% - 2rem));
     }
 
     html {
@@ -68,7 +71,7 @@
     }
 
     .nav-inner {
-      width: min(1500px, calc(100% - 4rem));
+      width: var(--page-width);
       margin: 0 auto;
       padding: 18px 0;
       display: flex;
@@ -141,7 +144,7 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      width: min(1500px, calc(100% - 4rem));
+      width: var(--page-width);
       margin: 0 auto;
       color: #ffffff;
     }
@@ -223,7 +226,7 @@
     }
 
     .section-wrap {
-      width: min(1500px, calc(100% - 4rem));
+      width: var(--page-width);
       margin-left: auto;
       margin-right: auto;
     }
@@ -455,14 +458,14 @@
     }
 
     /* =========================
-       CONTACT — SHORT & FULL WIDTH
+       CONTACT — NO BOX, INLINE BAR
        ========================= */
 
     #contact {
       background: var(--navy);
       color: #ffffff;
       text-align: left;
-      padding: 34px 0 32px;
+      padding: 30px 0 28px;
     }
 
     #contact .section-kicker {
@@ -480,16 +483,17 @@
     }
 
     .contact-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(232, 160, 32, 0.48);
-      padding: 20px 26px;
       width: 100%;
       max-width: none;
       margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
       display: grid;
       grid-template-columns: 1.7fr 0.9fr 1.15fr 0.8fr;
-      gap: 18px;
-      align-items: center;
+      gap: 22px;
+      align-items: start;
     }
 
     .contact-item {
@@ -497,6 +501,7 @@
       color: rgba(255, 255, 255, 0.92);
       font-size: 0.9rem;
       line-height: 1.42;
+      padding-top: 2px;
     }
 
     .contact-item strong {
@@ -611,12 +616,15 @@
     }
 
     @media (max-width: 768px) {
+      :root {
+        --page-width: calc(100% - 2rem);
+      }
+
       .navbar {
         position: relative;
       }
 
       .nav-inner {
-        width: calc(100% - 2rem);
         padding: 15px 0;
       }
 
@@ -633,10 +641,6 @@
         height: auto;
         padding: 34px 0 44px;
         align-items: flex-start;
-      }
-
-      .hero-content {
-        width: calc(100% - 2rem);
       }
 
       .hero-eyebrow {
@@ -685,10 +689,6 @@
         padding: 44px 0;
       }
 
-      .section-wrap {
-        width: calc(100% - 2rem);
-      }
-
       .section-title {
         font-size: 1.7rem;
       }
@@ -735,7 +735,7 @@
       }
 
       #contact {
-        padding: 36px 0 34px;
+        padding: 34px 0 32px;
       }
 
       #contact .section-title {
@@ -745,7 +745,6 @@
       .contact-card {
         grid-template-columns: 1fr;
         gap: 16px;
-        padding: 22px;
       }
     }
 
